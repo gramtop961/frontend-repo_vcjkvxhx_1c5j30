@@ -1,28 +1,40 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero.jsx';
+import Gallery from './components/Gallery.jsx';
+import Bio from './components/Bio.jsx';
+import Articles from './components/Articles.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen w-full bg-white text-black">
+      <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+        <a href="#" className="text-lg font-semibold tracking-tight">LA</a>
+        <nav className="flex items-center gap-6 text-sm text-black/70">
+          <a href="#gallery" className="hover:text-black">Gallery</a>
+          <a href="#about" className="hover:text-black">About</a>
+          <a href="#notes" className="hover:text-black">Notes</a>
+        </nav>
+      </header>
+
+      <main>
+        <Hero />
+        <Gallery />
+        <Bio />
+        <div id="notes">
+          <Articles />
         </div>
-      </div>
+      </main>
+
+      <footer className="mx-auto max-w-6xl px-6 py-10 text-sm text-black/60">
+        <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
+          <p>© {new Date().getFullYear()} Leon Avery — Portfolio</p>
+          <p>
+            Built with a minimalist aesthetic. Images from Unsplash for demo purposes.
+          </p>
+        </div>
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
